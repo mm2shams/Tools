@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the moon</title>
+    <link rel="shortcut icon" href="360.jpg" />
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      .naaah {
+        width: 100%;
+        height: 100vh;
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .∞{
+        font-size: large;
+      }
+      .moon{
+        margin-bottom: 50px;
+        max-width: 500px;
+        max-height: 500px;
+      }
+      </style>
+</head>
+<body>
+    <div class="naaah">
+        <img id="theMoon" src="144p.jpg" class="moon" alt="img">
+        <select id="moon" onchange="updateMoon()">
+            <option value="144p">144p</option>
+            <option value="360p">360p</option>
+            <option value="720p">720p</option>
+            <option value="4k">4k</option>
+            <option value="∞" class="∞">∞</option>
+        </select>
+    </div>
+    <script>
+        const moon = document.getElementById("moon");
+        const theMoon = document.getElementById("theMoon");
+        function updateMoon() {
+            if (moon.value == "144p"){
+                theMoon.src = "144p.jpg";
+            } else if (moon.value == "360p"){
+                theMoon.src = "360p.jpg";
+            } else if (moon.value == "720p"){
+                theMoon.src = "720p.jpg";
+            } else if (moon.value == "4k"){
+                theMoon.src = "4k.jpg";
+            } else if (moon.value == "∞"){
+                theMoon.src = "∞.jpeg";
+            }
+        }
+    </script>
+</body>
+</html>

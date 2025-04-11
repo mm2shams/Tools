@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="KeyFlip.png" />
+  <title>KeyFlip</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #232526, #414345);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      margin-top: 10vh;
+      background: #2c3e50;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      width: 100%;
+      max-width: 700px;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 20px;
+      resize: none;
+      box-sizing: border-box;
+    }
+
+    .output {
+      margin-top: 20px;
+      background: #34495e;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 16px;
+      min-height: 100px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <textarea id="inputText" placeholder="qu ikh hg;ghl... \\ ضع هنا الكلام..."></textarea>
+    <div class="output" id="outputText" > </div>
+  </div>
+
+  <script>
+    const arabicKeyboardMap = {
+      'q': 'ض', 'w': 'ص', 'e': 'ث', 'r': 'ق', 't': 'ف', 'y': 'غ', 'u': 'ع',
+      'i': 'ه', 'o': 'خ', 'p': 'ح', '[': 'ج', ']': 'د',
+      'a': 'ش', 's': 'س', 'd': 'ي', 'f': 'ب', 'g': 'ل', 'h': 'ا', 'j': 'ت', 'k': 'ن', 'l': 'م', ';': 'ك', "'": 'ط',
+      'z': 'ئ', 'x': 'ء', 'c': 'ؤ', 'v': 'ر', 'b': 'لا', 'n': 'ى', 'm': 'ة', ',': 'و', '.': 'ز', '/': 'ظ'
+    };
+
+    const englishKeyboardMap = {};
+    for (let key in arabicKeyboardMap) {
+      englishKeyboardMap[arabicKeyboardMap[key]] = key;
+    }
+
+    function isArabic(text) {
+      const arabicRegex = /[\u0600-\u06FF]/;
+      return arabicRegex.test(text);
+    }
+
+    function autoTranslate(text) {
+      let output = '';
+      if (isArabic(text)) {
+        for (let char of text) {
+          if (englishKeyboardMap[char]) {
+            output += englishKeyboardMap[char];
+          } else {
+            output += char;
+          }
+        }
+      } else {
+        for (let char of text) {
+          if (arabicKeyboardMap[char.toLowerCase()]) {
+            output += arabicKeyboardMap[char.toLowerCase()];
+          } else {
+            output += char;
+          }
+        }
+      }
+      return output;
+    }
+
+    const inputEl = document.getElementById("inputText");
+    const outputEl = document.getElementById("outputText");
+
+    inputEl.addEventListener("input", () => {
+      const input = inputEl.value;
+      outputEl.innerText = autoTranslate(input);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Calculator</title>
+    <link rel="stylesheet" href="Calculator.css" />
+    <link rel="icon"
+    href=https://i.pinimg.com/originals/e3/d8/c0/e3d8c0023f5eaf8eaf58bd447c1e7273.jpg
+    type="image/x-icon">
+  </head>
+
+  <body>
+    <div class="naaah">
+      <div class="Calculator">
+        <form>
+          <div class="sos">
+            <input type="text" id="sos" name="sos" />
+          </div>
+          <div>
+            <input type="button" value="AC" onclick="sos.value = ''" />
+            <input
+              type="button"
+              value="DE"
+              onclick="sos.value = sos.value.toString().slice(0,-1)"
+            />
+            <input type="button" value="." onclick="sos.value += '.'" />
+            <input type="button" value="/" onclick="sos.value += '/'" />
+          </div>
+          <div>
+            <input type="button" value="7" onclick="sos.value += '7'" />
+            <input type="button" value="8" onclick="sos.value += '8'" />
+            <input type="button" value="9" onclick="sos.value += '9'" />
+            <input type="button" value="*" onclick="sos.value += '*'" />
+          </div>
+          <div>
+            <input type="button" value="4" onclick="sos.value += '4'" />
+            <input type="button" value="5" onclick="sos.value += '5'" />
+            <input type="button" value="6" onclick="sos.value += '6'" />
+            <input type="button" value="-" onclick="sos.value += '-'" />
+          </div>
+          <div>
+            <input type="button" value="1" onclick="sos.value += '1'" />
+            <input type="button" value="2" onclick="sos.value += '2'" />
+            <input type="button" value="3" onclick="sos.value += '3'" />
+            <input type="button" value="+" onclick="sos.value += '+'" />
+          </div>
+          <div>
+            <input type="button" value="0" onclick="sos.value += '0'" />
+            <input type="button" value="00" onclick="sos.value += '00'" />
+            <input
+              type="button"
+              value="="
+              class="equal"
+              onclick="sos.value = eval(sos.value)"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      var sos = document.getElementById("sos");
+      sos.addEventListener("input", ()=>{
+        if (sos.value == "15935789632148625"){
+        window.location.href ="https://www.instagram.com/mm2shams?igsh=ZzcwdnlrdmV6a2o="
+      };
+      })
+    </script>
+    </body>
+</html>
