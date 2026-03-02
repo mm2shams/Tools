@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Text Replace Tool</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: white;
+        width: 500px;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        margin-top: 0;
+        text-align: center;
+        color: #333;
+    }
+
+    textarea, input {
+        width: 100%;
+        margin-bottom: 12px;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 14px;
+        box-sizing: border-box;
+        transition: 0.2s;
+    }
+
+    textarea:focus, input:focus {
+        border-color: #667eea;
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(102,126,234,0.2);
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: #667eea;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #5a67d8;
+    }
+
+    label {
+        font-size: 13px;
+        color: #555;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Text Replace Tool</h2>
+
+    <label>Original Text</label>
+    <textarea id="originalText" rows="4"></textarea>
+
+    <label>Find</label>
+    <input type="text" id="searchText">
+
+    <label>Replace With</label>
+    <input type="text" id="replaceText">
+
+    <button onclick="replaceText()">Replace</button>
+
+    <label>Result</label>
+    <textarea id="resultText" rows="4" readonly></textarea>
+</div>
+
+<script>
+function replaceText() {
+    let original = document.getElementById("originalText").value;
+    let search = document.getElementById("searchText").value;
+    let replace = document.getElementById("replaceText").value;
+    let result = original.split(search).join(replace);
+    document.getElementById("resultText").value = result;
+}
+</script>
+
+</body>
+</html>
